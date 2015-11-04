@@ -57,8 +57,8 @@ function conky_OrbitalClock()
 	SecPosY=SunPosY-math.cos(-Secs/60*2*math.pi)*SecR
 	MinPosX=SunPosX-math.sin(-(Mins*60+Secs)/3600*2*math.pi)*MinR
 	MinPosY=SunPosY-math.cos(-(Mins*60+Secs)/3600*2*math.pi)*MinR
-	HourPosX=SunPosX-math.sin(-(Hours*60*60+Mins*60+Secs)/86400*2*math.pi)*HouR
-	HourPosY=SunPosY-math.cos(-(Hours*60*60+Mins*60+Secs)/86400*2*math.pi)*HouR
+	HourPosX=SunPosX-math.sin(-(Hours*60*60+Mins*60+Secs)/43200*2*math.pi)*HouR
+	HourPosY=SunPosY-math.cos(-(Hours*60*60+Mins*60+Secs)/43200*2*math.pi)*HouR
 	---------------------Creating Celestial Bodies
 	StartAngle=(0)
 	EndAngle=(2*math.pi)
