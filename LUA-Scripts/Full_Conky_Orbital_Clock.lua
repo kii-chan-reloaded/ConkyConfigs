@@ -1,5 +1,5 @@
 --[[This is a lua script for use in conky. 
-This script will fit a small solar system into your conky window that can be used to tell time! The outermost planet has a 1 day orbital period, the middle planet has a 1 hour orbital period, and the innermost planet has a 1 minute orbital period.
+This script will fit a small solar system into your conky window that can be used to tell time! The outermost planet has a 12 hour orbital period, the middle planet has a 1 hour orbital period, and the innermost planet has a 1 minute orbital period.
 (In other words, outermost is the hour hand, then minute hand, then second hand. Just guesstimate where the numbers should be)
 You will need to add the following to your .conkyrc before the TEXT section:
 	lua_load $HOME/.config/conky/LUA/Full_Conky_Orbital_Clock.lua   (or wherever you put your luas)
