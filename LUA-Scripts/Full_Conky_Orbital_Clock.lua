@@ -51,7 +51,7 @@ function conky_OrbitalClock()
 	MinR=(2/7)*sm
 	HouR=(3/7)*sm
 	---------------------Time Settings
-	Hours,Mins,Secs=tonumber(os.date("%k")),tonumber(os.date("%M")),tonumber(os.date("%S"))
+	Hours,Mins,Secs=tonumber(os.date("%l")),tonumber(os.date("%M")),tonumber(os.date("%S"))
 	---------------------Orbit Calculations
 	SecPosX=SunPosX-math.sin(-Secs/60*2*math.pi)*SecR
 	SecPosY=SunPosY-math.cos(-Secs/60*2*math.pi)*SecR
