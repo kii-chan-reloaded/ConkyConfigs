@@ -1,0 +1,61 @@
+# For commands above TEXT check:
+# http://conky.sourceforge.net/config_settings.html
+#
+# For commands available below TEXT check:
+# http://conky.sourceforge.net/variables.html
+#
+#Based off of the Bunsen Labs default Conky
+
+# pkill -xf "conky -c $HOME/.config/conky/Classic.conkyrc" &
+##############################################
+# Settings
+##############################################
+background yes
+use_xft yes
+xftfont DwarfFortressVan:size=14
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type normal #desktop
+own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
+own_window_class Conky
+own_window_title Dwarven Conky
+double_buffer yes
+minimum_size 200 200
+maximum_width 480
+draw_shades no
+default_shade_color 000000
+draw_borders no
+draw_graph_borders no
+default_color ffffff
+default_bar_size 0 22
+draw_outline no
+default_outline_color 828282
+alignment top_right
+gap_x 20
+gap_y 45
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+lua_load $HOME/.config/conky/LUA/dorfs.lua
+lua_draw_hook_pre conky_dorfs
+
+##############################################
+#  Output
+##############################################
+TEXT
+$alignc${font DwarfFortressVan:size=16}$nodename, Mountainhome
+${font}Drink Stockpile: $alignr${battery_percent}%
+${if_empty $battery_time}${alignc}-Fully Charged-${else}${if_match $battery_percent < 25}${color #DC7480}${battery_bar 10,150}$alignr${color}${battery_time}${else}${color #CEDC74}${battery_bar 10,150}${color}$alignr${battery_time}$endif$endif
+
+Fortress Age:$alignr$uptime
+Stockpile \#1:$alignr$mem/$memmax
+Stockpile \#2:$alignr$swap/$swapmax
+Created Wealth:$alignr${fs_used /}/${fs_size /}
+Non-idlers:$alignr${cpu cpu0} 
+$alignc${cpugraph cpu0 25,240}
+${font DwarfFortressVan:size=36}$alignc${voffset -20}${tztime US/Central %k:%M:%S}
