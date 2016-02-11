@@ -107,6 +107,27 @@ function conky_Space()
 		cairo_set_source_rgba(cr,red,green,blue,.5)
 		cairo_arc_negative(cr,170,340,bat/100*80,-math.pi/2,math.pi/2)
 		cairo_fill(cr)
+		--------------------------Planet Clock
+		local totalsec=tonumber(os.date("%H"))*60*60+tonumber(os.date("%M"))*60+tonumber(os.date("%S"))
+		local clockR=50
+		AutoColor(black)
+		cairo_set_source_rgba(cr,red,green,blue,.5)
+		if totalsec==0 then
+			cairo_arc(cr,210,210,clockR,0,2*math.pi)
+			cairo_fill(cr)
+		elseif totalsec<=12*60*60 then
+			cairo_move_to(cr,210,160)
+			cairo_curve_to(cr,143,160,143,260,210,260)
+			cairo_move_to(cr,210,260)
+			cairo_curve_to(cr,277-134*totalsec/(12*60*60),260,277-134*totalsec/(12*60*60),160,210,160)
+			cairo_fill(cr)
+		elseif totalsec<=24*60*60 then
+			cairo_move_to(cr,210,160)
+			cairo_curve_to(cr,277,160,277,260,210,260)
+			cairo_move_to(cr,210,260)
+			cairo_curve_to(cr,277-134*(totalsec-12*60*60)/(12*60*60),260,277-134*(totalsec-12*60*60)/(12*60*60),160,210,160)
+			cairo_fill(cr)
+		end
 	--##############################
 	end -- if updates>3
 	cairo_destroy(cr)
