@@ -1,0 +1,147 @@
+# For commands above TEXT check:
+# http://conky.sourceforge.net/config_settings.html
+#
+# For commands available below TEXT check:
+# http://conky.sourceforge.net/variables.html
+
+# Bunsen Labs Conky help threads
+# http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
+
+# beta tested by: smacz
+# Enjoy! :)
+
+# pkill -xf "conky -q -c $HOME/.config/conky/BL-Default.conkyrc" &
+###  Begin Window Settings  #####################
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
+own_window_colour ddcccc
+own_window_class Conky
+own_window_title Space Conky
+
+### ARGB can be used for real transparency
+### NOTE that a composite manager is required for real transparency.
+### This option will not work as desired (in most cases) in conjunction with
+### own_window_type normal
+# own_window_argb_visual yes # Options: yes or no
+
+### When ARGB visuals are enabled, this use this to modify the alpha value
+### Use: own_window_type normal
+### Use: own_window_transparent no
+### Valid range is 0-255, where 0 is 0% opacity, and 255 is 100% opacity.
+# own_window_argb_value 50
+
+minimum_size 250 10  ### width | height
+maximum_width 250
+
+gap_x 15	### left | right
+gap_y 50	### up | down
+
+alignment tr
+#######################  End Window Settings  ###
+###  Font Settings  #############################
+# Use Xft (anti-aliased font and stuff)
+use_xft yes
+xftfont Orbitron:size=20
+#ftfont Liberation Sans:size=9
+
+# Alpha of Xft font. Must be a value at or between 1 and 0 ###
+xftalpha 1
+# Force UTF8? requires XFT ###
+override_utf8_locale yes
+
+uppercase no
+#########################  End Font Settings  ###
+###  Colour Settings  ###########################
+draw_shades no #yes
+default_shade_color 000000
+
+draw_outline no # amplifies text if yes
+default_outline_color 000000
+
+default_color 15141a # Not Black
+color0 00693f # Tealish
+color1 751c58 # Purple
+color2 c52132 # Red
+color3 f05424 # Orange
+color4 8abe40 # Limeish
+color5 02a2ad # Sky blue
+color6 e54152 # Red+
+color7 ff7444 # Orange+
+color8 faa631 # yeller
+#######################  End Colour Settings  ###
+###  Borders Section  ###########################
+draw_borders no
+# Stippled borders?
+stippled_borders 5
+# border margins
+border_inner_margin 5
+border_outer_margin 0
+# border width
+border_width 2
+# graph borders
+draw_graph_borders yes #no
+#default_graph_size 15 40
+#######################  End Borders Section  ###
+###  Miscellaneous Section  #####################
+# Boolean value, if true, Conky will be forked to background when started.
+background yes
+
+# Adds spaces around certain objects to stop them from moving other things
+# around, this only helps if you are using a mono font
+# Options: right, left or none
+use_spacer none
+
+# Default and Minimum size is 256 - needs more for single commands that
+# "call" a lot of text IE: bash scripts
+text_buffer_size 6144
+
+# Subtract (file system) buffers from used memory?
+no_buffers yes
+
+# change GiB to G and MiB to M
+short_units yes
+
+# Like it says, ot pads the decimals on % values
+# doesn't seem to work since v1.7.1
+pad_percents 2
+
+# Imlib2 image cache size, in bytes. Default 4MiB Increase this value if you use
+# $image lots. Set to 0 to disable the image cache.
+imlib_cache_size 0
+
+# Use the Xdbe extension? (eliminates flicker)
+# It is highly recommended to use own window with this one
+# so double buffer won't be so big.
+double_buffer yes
+
+
+#################  End Miscellaneous Section  ###
+update_interval 1
+
+lua_load $HOME/.config/conky/LUA/Space.lua
+lua_draw_hook_pre conky_Space
+
+TEXT
+${color}${alignc}${nodename}${font size=10}
+${font Monospace}${alignc}${tztime US/Central %A, %B %e}
+${color2}${font Venus Rising}UTC:${color6}${font Ubuntu Mono:size=14}${alignr}${utime %H:%M}
+${color3}${font Venus Rising}MET:${color7}${font Ubuntu Mono:size=14}${alignr}${uptime}
+
+
+
+${font Venus Rising}${color4} RAM  ${color1}Swap
+
+
+${font size=9}         ${font Venus Rising}${color5}Disk
+
+
+
+
+
+            ${color7}Batt.  ${color}CPU
+
+
+
+
