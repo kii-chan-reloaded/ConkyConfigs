@@ -1,0 +1,51 @@
+# You'll either want to add the following to your rc.xml, or add in your own window border stuff here. I don't use them.
+#<application name="*">
+#    <decor>no</decor>
+#</application>
+
+
+#======================================
+#     Menu Settings	
+#======================================
+
+menu.title.bg: flat
+menu.title.bg.color: #15141a
+menu.title.bg.border.color: #15141a
+menu.title.text.color: #f7e9ce
+menu.separator.color: #15141a
+menu.items.bg: flat
+menu.items.bg.color: #f7e9ce
+menu.items.text.color: #15141a
+menu.items.disabled.text.color: #707070
+menu.items.active.bg: gradient horizontal flat
+menu.items.active.bg.colorTo:#02a2ad
+menu.items.active.bg.color:#8abe40
+menu.items.active.bg.border.color: #15141a
+menu.items.active.text.color: #15141a
+
+
+#======================================
+#     Global Width Settings
+#======================================
+
+padding.width: 0
+padding.height: 0
+border.width: 0
+window.handle.width: 3
+window.client.padding.width: 0
+menu.overlap.x: 0
+
+#======================================
+#     Miscellaneous Settings
+#======================================
+
+border.color: #1F1F1F
+menu.border.color: #1F1F1F
+
+#======================================
+#     Osd		
+#======================================
+
+osd.hilight.bg: flat border
+osd.hilight.bg.color: #7f1e31
+osd.hilight.bg.border.color: #c3314f
