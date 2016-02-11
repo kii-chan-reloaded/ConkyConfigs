@@ -60,6 +60,9 @@ default_shade_color 000000
 draw_outline no # amplifies text if yes
 default_outline_color 000000
 
+#default_color 656667 # Waldorf original colour
+#default_color 7a7a7a # Flame  & Bunsen Grey
+#default_color 929292 # Labs Grey
 default_color 15141a # Not Black
 color0 00693f # Tealish
 color1 751c58 # Purple
@@ -70,6 +73,7 @@ color5 02a2ad # Sky blue
 color6 e54152 # Red+
 color7 ff7444 # Orange+
 color8 faa631 # yeller
+color9 f7e9ce # background (don't use duh)
 #######################  End Colour Settings  ###
 ###  Borders Section  ###########################
 draw_borders no
@@ -116,9 +120,20 @@ imlib_cache_size 0
 # so double buffer won't be so big.
 double_buffer yes
 
+#   Maximum size of user text buffer, i.e. layout below TEXT line in config file
+#  (default is 16384 bytes)
+# max_user_text 16384
+
+# Desired output unit of all objects displaying a temperature. Parameters are
+# either "fahrenheit" or "celsius". The default unit is degree Celsius.
+# temperature_unit Fahrenheit
 
 #################  End Miscellaneous Section  ###
+#### ${font Liberation Mono:bold:size=10}${alignc}${execpi 600 $HOME/.config/conky/scripts/bunsenweather.sh}
 update_interval 1
+
+##Kozuka Gothic Pro
+##Venus Rising
 
 lua_load $HOME/.config/conky/LUA/Space.lua
 lua_draw_hook_pre conky_Space
@@ -138,7 +153,7 @@ ${font size=9}         ${font Venus Rising}${color5}Disk
 
 
 
-
+${image /home/keaton/.config/conky/images/world.png -p 153,153}
 
             ${color7}Batt.  ${color}CPU
 
