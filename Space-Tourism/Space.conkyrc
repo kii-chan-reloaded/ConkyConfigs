@@ -153,7 +153,7 @@ ${font size=9}         ${font Venus Rising}${color5}Disk
 
 
 
-${image /home/keaton/.config/conky/images/world.png -p 153,153}
+${image $HOME/.config/conky/images/world.png -p 153,153}
 
             ${color7}Batt.  ${color}CPU
 
