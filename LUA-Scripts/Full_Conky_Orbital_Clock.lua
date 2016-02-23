@@ -60,33 +60,47 @@ function conky_OrbitalClock()
 	HourPosX=SunPosX-math.sin(-(Hours*60*60+Mins*60+Secs)/43200*2*math.pi)*HouR
 	HourPosY=SunPosY-math.cos(-(Hours*60*60+Mins*60+Secs)/43200*2*math.pi)*HouR
 	---------------------Creating Celestial Bodies
-	StartAngle=(0)
-	EndAngle=(2*math.pi)
-	cairo_arc(cr,SunPosX,SunPosY,SunR,StartAngle,EndAngle)
+	StartAngleS=(math.pi+Secs/60*2*math.pi)
+	EndAngleS=(2*math.pi+Secs/60*2*math.pi)
+	StartAngleM=(math.pi+(Mins*60+Secs)/3600*2*math.pi)
+	EndAngleM=(2*math.pi+(Mins*60+Secs)/3600*2*math.pi)
+	StartAngleH=(math.pi+(Hours*60*60+Mins*60+Secs)/43200*2*math.pi)
+	EndAngleH=(2*math.pi+(Hours*60*60+Mins*60+Secs)/43200*2*math.pi)
+	---------------
+	cairo_arc(cr,SunPosX,SunPosY,SunR,0,2*math.pi)
 	cairo_set_source_rgba(cr,SunRed,SunBlue,SunGreen,SunAlpha)
 	cairo_fill(cr)
 	---------------
-	cairo_arc(cr,SecPosX,SecPosY,PlanetR,StartAngle,EndAngle)
+	cairo_arc(cr,SecPosX,SecPosY,PlanetR,0,2*math.pi)
 	cairo_set_source_rgba(cr,SecRed,SecBlue,SecGreen,SecAlpha)
 	cairo_fill(cr)
+	cairo_arc(cr,SecPosX,SecPosY,PlanetR,StartAngleS,EndAngleS)
+	cairo_set_source_rgba(cr,0,0,0,SecAlpha)
+	cairo_fill(cr)
 	---------------
-	cairo_arc(cr,MinPosX,MinPosY,PlanetR,StartAngle,EndAngle)
+	cairo_arc(cr,MinPosX,MinPosY,PlanetR,0,2*math.pi)
 	cairo_set_source_rgba(cr,MinRed,MinBlue,MinGreen,MinAlpha)
 	cairo_fill(cr)
-	---------------
-	cairo_arc(cr,HourPosX,HourPosY,PlanetR,StartAngle,EndAngle)
-	cairo_set_source_rgba(cr,HourRed,HourBlue,HourGreen,HourAlpha)
+	cairo_arc(cr,MinPosX,MinPosY,PlanetR,StartAngleM,EndAngleM)
+	cairo_set_source_rgba(cr,0,0,0,MinAlpha)
 	cairo_fill(cr)
 	---------------
-	cairo_arc(cr,SunPosX,SunPosY,SecR,StartAngle,EndAngle)
+	cairo_arc(cr,HourPosX,HourPosY,PlanetR,0,2*math.pi)
+	cairo_set_source_rgba(cr,HourRed,HourBlue,HourGreen,HourAlpha)
+	cairo_fill(cr)
+	cairo_arc(cr,HourPosX,HourPosY,PlanetR,StartAngleH,EndAngleH)
+	cairo_set_source_rgba(cr,0,0,0,HourAlpha)
+	cairo_fill(cr)
+	---------------
+	cairo_arc(cr,SunPosX,SunPosY,SecR,0,2*math.pi)
 	cairo_set_source_rgba(cr,SecRed,SecBlue,SecGreen,LineAlpha)
 	cairo_stroke(cr)
 	---------------
-	cairo_arc(cr,SunPosX,SunPosY,MinR,StartAngle,EndAngle)
+	cairo_arc(cr,SunPosX,SunPosY,MinR,0,2*math.pi)
 	cairo_set_source_rgba(cr,MinRed,MinBlue,MinGreen,LineAlpha)
 	cairo_stroke(cr)
 	---------------
-	cairo_arc(cr,SunPosX,SunPosY,HouR,StartAngle,EndAngle)
+	cairo_arc(cr,SunPosX,SunPosY,HouR,0,2*math.pi)
 	cairo_set_source_rgba(cr,HourRed,HourBlue,HourGreen,LineAlpha)
 	cairo_stroke(cr)
 	---------------------Finishing up
